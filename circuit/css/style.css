@@ -301,16 +301,29 @@ p {
 2.2 Buttons - There are buttons on a transparent background, primary and secondary color background.
 **********/
 
+#pop {
+
+    padding-left: 50px;
+}
+
+
 .button,
 .button:visited,
 .button:focus {
     display: inline-block;
-    border: 1px solid #181A1C;
-    color: #181A1C;
+    border: 1px solid white;
+    color: white;
     background-color: transparent;
     padding: 15px 30px;
     font-size: 17px;
     line-height: auto;
+}
+
+a.button {
+    margin-left: 50%;
+    margin-right: 50%;
+    float: none;
+    text-align: center;
 }
 
 .button:hover,
@@ -557,9 +570,9 @@ p {
 }
 
 
-/*******
+******
 3.1 Services  
-***************************************/
+**************************************
 
 .service {
     margin-top: 20px;

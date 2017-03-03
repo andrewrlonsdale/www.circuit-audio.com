@@ -12,7 +12,7 @@ if (!empty($_POST)){
   $emailTo ="yourmail@yoursite.com"; //"yourmail@yoursite.com";
 
   //from email adress
-  $emailFrom ="contact@yoursite.com"; //"contact@yoursite.com";
+  $emailFrom =$email; //"contact@yoursite.com";
 
   //email subject
   $emailSubject = "Mail from Porta";

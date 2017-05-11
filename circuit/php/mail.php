@@ -9,10 +9,10 @@ if (!empty($_POST)){
   $_POST  = multiDimensionalArrayMap('cleanData', $_POST);
 
   //your email adress 
-  $emailTo ="yourmail@yoursite.com"; //"yourmail@yoursite.com";
+  $emailTo ="contact@circuit-audio.com"; //"yourmail@yoursite.com";
 
   //from email adress
-  $emailFrom =$email; //"contact@yoursite.com";
+  $emailFrom = $email; //"contact@yoursite.com";
 
   //email subject
   $emailSubject = "Mail from Porta";

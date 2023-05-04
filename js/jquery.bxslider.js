@@ -8,7 +8,7 @@
  * Released under the WTFPL license - http://sam.zoy.org/wtfpl/
  */
 
-;(function($){
+(function($){
 
 	var plugin = {};
 	
@@ -592,7 +592,7 @@
 				// var linkContent = slider.settings.buildPager && $.isFunction(slider.settings.buildPager) ? slider.settings.buildPager(i) : i + 1;
 				// add the markup to the string
 				pagerHtml += '<div class="bx-pager-item"><a href="" data-slide-index="' + i + '" class="bx-pager-link">' + linkContent + '</a></div>';
-			};
+			}
 			// populate the pager element with pager links
 			slider.pagerEl.html(pagerHtml);
 		}
@@ -796,8 +796,8 @@
 				}else if(slider.active.index == slider.children.length - 1){
 					position = slider.children.eq(slider.children.length - 1).position();
 				}
-				if (slider.settings.mode == 'horizontal') { setPositionProperty(-position.left, 'reset', 0);; }
-				else if (slider.settings.mode == 'vertical') { setPositionProperty(-position.top, 'reset', 0);; }
+				if (slider.settings.mode == 'horizontal') { setPositionProperty(-position.left, 'reset', 0); }
+				else if (slider.settings.mode == 'vertical') { setPositionProperty(-position.top, 'reset', 0); }
 			}
 			// declare that the transition is complete
 			slider.working = false;

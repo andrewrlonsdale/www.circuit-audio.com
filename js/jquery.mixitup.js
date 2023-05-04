@@ -91,7 +91,7 @@
 				
 				if(settings){
 					$.extend(config, settings);
-				};
+				}
 
 				// ADD CONFIG OBJECT TO CONTAINER OBJECT PER INSTANTIATION
 				
@@ -104,7 +104,7 @@
 				if ($.support.touch) {
 					config.isTouch = true;
 					config.resetDelay = 350;
-				};
+				}
 				
 				// LOCALIZE CONTAINER
 	
@@ -132,9 +132,9 @@
 					} else {
 						$(config.sortSelector+'[data-sort='+config.sortOnLoad+']').addClass('active');
 						sortby = config.sortOnLoad, config.sortOnLoad = 'desc';
-					};
+					}
 					sort(sortby, order, $cont, config);
-				};
+				}
 				
 				// BUILD TRANSITION AND PERSPECTIVE OBJECTS
 				
@@ -143,14 +143,14 @@
 					config.transition[a+'transition'] = 'all '+config.transitionSpeed+'ms ease-in-out';
 					config.perspective[a+'perspective'] = config.perspectiveDistance+'px';
 					config.perspective[a+'perspective-origin'] = config.perspectiveOrigin;
-				};
+				}
 				
 				// BUILD TRANSITION CLEANER
 				
 				for(var i = 0; i<2; i++){
 					var a = i==0 ? a = config.prefix : '';
 					config.clean[a+'transition'] = 'none';
-				};
+				}
 	
 				// CHOOSE GRID OR LIST
 	
@@ -160,7 +160,7 @@
 				} else {
 					$cont.addClass(config.gridClass);
 					config.origDisplay = config.targetDisplayGrid;
-				};
+				}
 				config.origLayout = config.layoutMode;
 				
 				// PARSE 'SHOWONLOAD'
@@ -179,7 +179,7 @@
 				if(showOnLoadArray[0]  == 'all'){
 					showOnLoadArray[0] = 'mix_all',
 					config.showOnLoad = 'mix_all';
-				};
+				}
 				
 				// FADE IN 'SHOWONLOAD'
 				
@@ -194,7 +194,7 @@
 						$t.css('display',config.targetDisplayList);
 					} else {
 						$t.css('display',config.targetDisplayGrid);
-					};
+					}
 					$t.css(config.transition);
 				});
 				
@@ -219,7 +219,7 @@
 								display: config.targetDisplayGrid,
 								opacity: 1
 							});
-						};
+						}
 						
 						// FIRE "ONMIXLOAD" CALLBACK
 						
@@ -231,7 +231,7 @@
 							// UPDATE CONFIG IF DATA RETURNED
 
 							config = output ? output : config;
-						};
+						}
 						
 					},config.transitionSpeed);
 				},10);
@@ -257,7 +257,7 @@
 							$t.addClass('active');
 						} else {
 							if(sortby != 'random')return false;
-						};
+						}
 						
 						$cont.find(config.targetSelector).each(function(){
 							config.startOrder.push($(this));
@@ -265,7 +265,7 @@
 				
 						goMix(config.filter,sortby,order,$cont, config);
 				
-					};
+					}
 				
 				});
 
@@ -310,14 +310,14 @@
 								$t.addClass('active');
 								config.filter = config.filter+' '+thisFilter;
 								
-							};
-						};
+							}
+						}
 						
 						// GO MIX
 						
 						goMix(config.filter, null, null, $cont, config);
 
-					};
+					}
 				
 				});
 					
@@ -332,7 +332,7 @@
 				if(config.layoutMode != 'grid'){
 					config.layoutMode = 'grid';
 					goMix(config.filter, null, null, $(this), config);
-				};
+				}
 			});
 		},
 	
@@ -344,7 +344,7 @@
 				if(config.layoutMode != 'list'){
 					config.layoutMode = 'list';
 					goMix(config.filter, null, null, $(this), config);
-				};
+				}
 			});
 		},
 	
@@ -357,7 +357,7 @@
 					$(config.filterSelector).removeClass('active');
 					$(config.filterSelector+'[data-filter="'+arg+'"]').addClass('active');
 					goMix(arg, null, null, $(this), config);
-				};
+				}
 			});	
 		},
 	
@@ -375,14 +375,14 @@
 					} else {
 						$(config.sortSelector+'[data-sort="'+args+'"]').addClass('active');
 						var sortby = args, order = 'desc';
-					};
+					}
 					$t.find(config.targetSelector).each(function(){
 						config.startOrder.push($(this));
 					});
 					
 					goMix(config.filter,sortby,order, $t, config);
 				
-				};
+				}
 			});
 		},
 		
@@ -407,10 +407,10 @@
 						$t.find(config.targetSelector).each(function(){
 							config.startOrder.push($(this));
 						});
-					};
+					}
 					config.layoutMode = multiOut.layoutMode;
 					goMix(multiOut.filter,multiOut.sort,multiOut.order, $t, config);
-				};
+				}
 			});
 		},
 		
@@ -430,7 +430,7 @@
 					$(config.filterSelector).removeClass('active');
 					$(config.filterSelector+'[data-filter="'+arg+'"]').addClass('active');
 					goMix(arg, null, null, $t, config);
-				};
+				}
 			});
 		}
 	};
@@ -442,7 +442,7 @@
 			return methods[method].apply( this, Array.prototype.slice.call(arguments,1));
 		} else if (typeof method === 'object' || ! method){
 			return methods.init.apply( this, arguments );
-		};
+		}
 	};
 	
 	/* ==== THE MAGIC ==== */
@@ -466,7 +466,7 @@
 			// UPDATE CONFIG IF DATA RETURNED
 			
 			config = output ? output : config;
-		};
+		}
 		
 		// SHORT LOCAL VARS
 		
@@ -480,7 +480,7 @@
 			config.transition[a+'transform'] = a+'translate3d(0,0,0)';
 			config.perspective[a+'perspective'] = config.perspectiveDistance+'px';
 			config.perspective[a+'perspective-origin'] = config.perspectiveOrigin;
-		};
+		}
 		
 		// CACHE TARGET ELEMENTS FOR QUICK ACCESS
 		
@@ -509,11 +509,11 @@
 		if(config.easing == 'windback'){
 			config.easing = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
 			config.easingFallback = 'cubic-bezier(0.175, 0.885, 0.320, 1)'; // Fall-back for old webkit, with no values > 1 or < 1
-		};
+		}
 		if(config.easing == 'windup'){
 			config.easing = 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
 			config.easingFallback = 'cubic-bezier(0.6, 0.28, 0.735, 0.045)';
-		};
+		}
 		
 		// USE LIST SPECIFIC EFFECTS IF DECLARED
 		
@@ -529,7 +529,7 @@
 			config.rotateX = effectsOut.indexOf('rotateX') > -1 ? 'rotateX(90deg)' : '';
 			config.blur = effectsOut.indexOf('blur') > -1 ? 'blur(8px)' : '';
 			config.grayscale = effectsOut.indexOf('grayscale') > -1 ? 'grayscale(100%)' : '';
-		};
+		}
 		
 		// DECLARE NEW JQUERY OBJECTS FOR GROUPING
 		
@@ -555,7 +555,7 @@
 			$.each(filter,function(i){
 				filterArray[i] = buildFilterArray(this);
 			});
-		};
+		}
 
 		// "OR" LOGIC (DEFAULT)
 		
@@ -582,7 +582,7 @@
 						// ELSE IF HAS NO FILTERS, ADD TO "HIDE" OBJECT
 						} else {
 							$hide = $hide.add($t);
-						};
+						}
 					} else {
 						
 						var pass = 0;
@@ -592,10 +592,10 @@
 							if(this.length){
 								if($t.is('.'+this.join(', .'))){
 									pass++
-								};
+								}
 							} else if(pass > 0){
 								pass++;
-							};
+							}
 						});
 						// IF PASSES ALL DIMENSIONS, SHOW
 						if(pass == filterArray.length){
@@ -603,11 +603,11 @@
 						// ELSE HIDE
 						} else {
 							$hide = $hide.add($t);
-						};
-					};
+						}
+					}
 				});
 			
-			};
+			}
 	
 		} else {
 			
@@ -620,7 +620,7 @@
 			// ADD "MIX_HIDE" CLASS TO EVERYTHING ELSE
 			
 			$hide = $hide.add($par.find(mixSelector+':not(.'+filterArray.join('.')+'):visible'));
-		};
+		}
 		
 		// GET TOTAL NUMBER OF ELEMENTS TO SHOW
 		
@@ -640,7 +640,7 @@
 			if($t.css('display') != 'none'){
 				$tohide = $tohide.add($t);
 				$pre = $pre.add($t);
-			};
+			}
 		});
 		
 		// IF ALL ELEMENTS ARE ALREADY SHOWN AND THERE IS NOTHING TO HIDE, AND NOT PERFORMING A LAYOUT CHANGE OR SORT:
@@ -667,15 +667,15 @@
 						$cont.addClass(config.gridClass);
 						$cont.removeClass(config.listClass);
 						$pre.css('display',config.targetDisplayGrid);
-					};
+					}
 					
 					// THEN CLEAN UP AND GO HOME
 
 					resetFilter();
 					return false;
 				}
-			};
-		};
+			}
+		}
 		
 		// GET CONTAINER'S STARTING HEIGHT
 
@@ -699,7 +699,7 @@
 					$toshow = $toshow.add($t)
 				} else {
 					$pre = $pre.add($t);
-				};
+				}
 			});
 	
 			// IF NON-ANIMATED LAYOUT MODE TRANSITION:
@@ -716,18 +716,18 @@
 					$cont.addClass(config.gridClass);
 					$cont.removeClass(config.listClass);
 					$pre.css('display',config.targetDisplayGrid);
-				};
+				}
 				
 				resetFilter();
 				return false;
-			};
+			}
 			
 			// IF IE, FUCK OFF, AND THEN CLEAN UP AND GO HOME
 		
 			if(!window.atob){
 				resetFilter();
 				return false;
-			};
+			}
 			
 			// OVERRIDE ANY EXISTING TRANSITION TIMING FOR CALCULATIONS
 			
@@ -750,7 +750,7 @@
 				$cont.addClass(config.gridClass);
 				$cont.removeClass(config.listClass);
 				$toshow.css('display',config.targetDisplayGrid);
-			};
+			}
 			
 			// FOR EACH ELEMENT NOW SHOWN, ADD ITS INTERMEDIATE POSITION TO 'SHOWINTERPOS' ARRAY
 	
@@ -777,13 +777,13 @@
 				$pre.css('display',config.targetDisplayList);
 			} else {
 				$pre.css('display',config.targetDisplayGrid);
-			};
+			}
 			
 			// IF A SORT ARGUMENT HAS BEEN SENT, RUN SORT FUNCTION SO OBJECTS WILL MOVE TO THEIR FINAL ORDER
 			
 			if(sortby){
 				sort(sortby, order, $cont, config);	
-			};
+			}
 			
 			// IF VISIBLE SORT ORDER IS THE SAME (WHICH WOULD NOT TRIGGER A TRANSITION EVENT)
 		
@@ -792,7 +792,7 @@
 				// THEN CLEAN UP AND GO HOME
 				resetFilter();
 				return false;
-			};
+			}
 			
 			// TEMPORARILY HIDE ALL SHOWN ELEMENTS TO HIDE
 
@@ -820,7 +820,7 @@
 			
 			if(sortby){
 				sort('reset', null, $cont, config);
-			};
+			}
 			
 			// RE-HIDE ALL ELEMENTS TEMPORARILY SHOWN
 			
@@ -839,7 +839,7 @@
 			} else {
 				$cont.removeClass(config.listClass);
 				$toshow.css('display', config.targetDisplayGrid);
-			};
+			}
 			
 			// IF WE ARE ANIMATING CONTAINER, RESET IT TO ITS STARTING HEIGHT
 		
@@ -853,7 +853,7 @@
 				var a = i==0 ? a = config.prefix : '';
 				toShowCSS[a+'transform'] = config.scale+' '+config.rotateX+' '+config.rotateY+' '+config.rotateZ;
 				toShowCSS[a+'filter'] = config.blur+' '+config.grayscale;
-			};
+			}
 			
 			$toshow.css(toShowCSS);
 	
@@ -870,12 +870,12 @@
 				} else {
 					data.preTX = data.origPos.left - data.preInterPos.left;
 					data.preTY = data.origPos.top - data.preInterPos.top;
-				};
+				}
 				var preCSS = {};
 				for(var i = 0; i<2; i++){
 					var a = i==0 ? a = config.prefix : '';
 					preCSS[a+'transform'] = 'translate('+data.preTX+'px,'+data.preTY+'px)';
-				};
+				}
 				
 				$t.css(preCSS);	
 			});
@@ -888,7 +888,7 @@
 			} else {
 				$cont.addClass(config.gridClass);
 				$cont.removeClass(config.listClass);
-			};
+			}
 			
 			// WRAP ANIMATION FUNCTIONS IN 10ms TIMEOUT TO PREVENT RACE CONDITION
 			
@@ -902,9 +902,9 @@
 						var a = i==0 ? a = config.prefix : '';
 						containerCSS[a+'transition'] = 'all '+speed+'ms ease-in-out';
 						containerCSS['height'] = config.newHeight+'px';
-					};
+					}
 					$par.css(containerCSS);
-				};
+				}
 	
 				// BEGIN FADING IN/OUT OF ALL ELEMENTS TO SHOW/HIDE
 				$tohide.css('opacity',config.fade);
@@ -928,7 +928,7 @@
 						toShowCSS[a+'transition-delay'] = '0';
 						toShowCSS[a+'transform'] = 'translate('+data.tX+'px,'+data.tY+'px)';
 						toShowCSS[a+'filter'] = 'none';
-					};
+					}
 					
 					$(this).css('-webkit-transition', 'all '+speed+'ms '+config.easingFallback).css(toShowCSS);
 				});
@@ -947,7 +947,7 @@
 						var a = i==0 ? a = config.prefix : '';
 						preCSS[a+'transition'] = 'all '+speed+'ms '+config.easing;
 						preCSS[a+'transform'] = 'translate('+data.tX+'px,'+data.tY+'px)';
-					};
+					}
 					
 					$(this).css('-webkit-transition', 'all '+speed+'ms '+config.easingFallback).css(preCSS);
 				});
@@ -961,7 +961,7 @@
 					toHideCSS[a+'transform'] = config.scale+' '+config.rotateX+' '+config.rotateY+' '+config.rotateZ;
 					toHideCSS[a+'filter'] = config.blur+' '+config.grayscale;
 					toHideCSS['opacity'] = config.fade;
-				};
+				}
 				
 				$tohide.css(toHideCSS);
 				
@@ -977,7 +977,7 @@
 						
 							if($(e.target).hasClass(mixSelector.replace('.',''))){
 								resetFilter();
-							};
+							}
 						
 						} else {
 							
@@ -985,11 +985,11 @@
 						
 							if($(e.target).is(mixSelector)){
 								resetFilter();
-							};
+							}
 							
-						};
+						}
 						
-					};
+					}
 				});	
 	
 			},10);
@@ -999,7 +999,7 @@
 			config.failsafe = setTimeout(function(){
 				if(config.mixing){
 					resetFilter();
-				};
+				}
 			}, speed + 400);
 	
 		} else {
@@ -1015,7 +1015,7 @@
 			if(!window.atob){
 				resetFilter();
 				return false;
-			};
+			}
 			
 			// GROUP ALL ELEMENTS TO HIDE INTO JQUERY OBJECT
 			
@@ -1037,9 +1037,9 @@
 						var a = i==0 ? a = config.prefix : '';
 						containerCSS[a+'transition'] = 'height '+speed+'ms ease-in-out';
 						containerCSS['height'] = config.minHeight+'px';
-					};
+					}
 					$par.css(containerCSS);
-				};
+				}
 	
 				// APPLY TRANSITION TIMING TO ALL TARGET ELEMENTS
 				
@@ -1061,7 +1061,7 @@
 						toHideCSS[a+'transform'] = config.scale+' '+config.rotateX+' '+config.rotateY+' '+config.rotateZ;
 						toHideCSS[a+'filter'] = config.blur+' '+config.grayscale;
 						toHideCSS['opacity'] = config.fade;
-					};
+					}
 
 					$tohide.css(toHideCSS);
 					
@@ -1071,7 +1071,7 @@
 						if (e.originalEvent.propertyName.indexOf('transform') > -1 || e.originalEvent.propertyName.indexOf('opacity') > -1){
 							$cont.addClass(config.failClass);
 							resetFilter();
-						};
+						}
 					});
 		
 				} else {
@@ -1079,10 +1079,10 @@
 				// ELSE, WE'RE DONE MIXING
 				 	
 					config.mixing = false;
-				};
+				}
 	
 			}, 10);
-		}; 
+		} 
 		
 		// CLEAN UP AND RESET FUNCTION
 
@@ -1096,7 +1096,7 @@
 			
 			if(sortby){
 				sort(sortby, order, $cont, config);
-			};
+			}
 			
 			// EMPTY SORTING ARRAYS
 		
@@ -1115,7 +1115,7 @@
 					display: 'none',
 					opacity: '0'
 				});
-			};
+			}
 			
 			// REMOVE HEIGHT FROM CONTAINER ONLY IF RESIZING
 			
@@ -1136,7 +1136,7 @@
 			} else {
 				$show.css({display:config.targetDisplayGrid, opacity:'1'});
 				config.origDisplay = config.targetDisplayGrid;
-			};
+			}
 			config.origLayout = config.layoutMode;
 				
 			var wait = setTimeout(function(){
@@ -1157,10 +1157,10 @@
 					// UPDATE CONFIG IF DATA RETURNED
 				
 					config = output ? output : config;
-				};
+				}
 			});
-		};
-	};
+		}
+	}
 	
 	// SORT FUNCTION
 	
@@ -1176,7 +1176,7 @@
 		  	if (sortAttrA > sortAttrB)
 		    	return 1;
 		  	return 0;
-		};
+		}
 		
 		// REBUILD DOM
 
@@ -1185,8 +1185,8 @@
 				$sortWrapper.prepend(element).prepend(' ');
 			} else {
 				$sortWrapper.append(element).append(' ');
-			};
-		};
+			}
+		}
 		
 		// RANDOMIZE ARRAY
 
@@ -1199,9 +1199,9 @@
 				var t = newArray[i];
 		  		newArray[i] = newArray[p];
 			  	newArray[p] = t;
-		 	};
+		 	}
 			return newArray; 
-		};
+		}
 		
 		// SORT
 		
@@ -1215,7 +1215,7 @@
 				config.origSort.push($(this).parent().html().replace(/\s+/g, ''));
 				$(this).unwrap();
 			});
-		};
+		}
 		
 		
 		
@@ -1232,7 +1232,7 @@
 		} else if(sortby == 'random'){
 			if(!config.newOrder.length){
 				config.newOrder = arrayShuffle(config.startOrder);
-			};
+			}
 			$.each(config.newOrder,function(){
 				$sortWrapper.append(this).append(' ');
 			});	
@@ -1246,19 +1246,19 @@
 			if(typeof config.origOrder[0].attr(sortby) === 'undefined'){
 				console.log('No such attribute found. Terminating');
 				return false;
-			};
+			}
 			
 			if(!config.newOrder.length){
 				$.each(config.origOrder,function(){
 					config.newOrder.push($(this));
 				});
 				config.newOrder.sort(compare);
-			};
+			}
 			$.each(config.newOrder,function(){
 				rebuild(this);
 			});
 			
-		};
+		}
 		config.checkSort = [];
 		$sortWrapper.find(config.targetSelector+':visible').each(function(i){
 			var $t = $(this);
@@ -1267,14 +1267,14 @@
 				// PREVENT COMPARE RETURNING FALSE POSITIVES ON ELEMENTS WITH NO CLASS/ATTRIBUTES
 				
 				$t.attr('data-checksum','1');
-			};
+			}
 			$t.wrap('<s/>');
 			config.checkSort.push($t.parent().html().replace(/\s+/g, ''));
 			$t.unwrap();
 		});
 		
 		$cont.find(config.targetSelector).unwrap();
-	};
+	}
 	
 	// FIND VENDOR PREFIX
 
@@ -1283,10 +1283,10 @@
 	    for (var i = 0; i < prefixes.length; i++){
 	        if (prefixes[i] + "Transition" in el.style){
 	            return prefixes[i];
-	        };
-	    };
+	        }
+	    }
 	    return "transition" in el.style ? "" : false;
-	};
+	}
 	
 	// REMOVE SPECIFIC STYLES
 	
@@ -1312,11 +1312,11 @@
 	    for (var i = 0; i < b.length; i++){
 	        if (a[i].compare) { 
 	            if (!a[i].compare(b[i])) return false;
-	        };
+	        }
 	        if (a[i] !== b[i]) return false;
-	    };
+	    }
 	    return true;
-	};
+	}
 	
 	// BUILD FILTER ARRAY(S)
 	
@@ -1331,7 +1331,7 @@
 		});
 		if(arr[0] == "")arr.shift(); 
 		return arr;
-	};
+	}
 
 	
 })(jQuery);
